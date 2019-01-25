@@ -9,8 +9,10 @@
 import CoreBluetooth
 //Uart Service uuid
 
+// https://learn.adafruit.com/introducing-adafruit-ble-bluetooth-low-energy-friend/uart-service
+//let kBLEService_UUID = "6e400001-b5a3-f393-e0a9-e50e24dcca9e"
 
-let kBLEService_UUID = "6e400001-b5a3-f393-e0a9-e50e24dcca9e"
+let kBLEService_UUID = "e2c56db5-dffb-48d2-b060-d0f5a71096e0" // iBeacon (ZeroBeacon/AprilBeacon?)
 let kBLE_Characteristic_uuid_Tx = "6e400002-b5a3-f393-e0a9-e50e24dcca9e"
 let kBLE_Characteristic_uuid_Rx = "6e400003-b5a3-f393-e0a9-e50e24dcca9e"
 let MaxCharacters = 20
