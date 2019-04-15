@@ -76,8 +76,8 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate, CBP
     func startScan() {
         print("Now Scanning...")
         self.timer.invalidate()
-        centralManager?.scanForPeripherals(withServices: nil , options: [CBCentralManagerScanOptionAllowDuplicatesKey:false])
-        //centralManager?.scanForPeripherals(withServices: [BLEService_UUID] , options: [CBCentralManagerScanOptionAllowDuplicatesKey:false])
+        //centralManager?.scanForPeripherals(withServices: nil , options: [CBCentralManagerScanOptionAllowDuplicatesKey:false])
+        centralManager?.scanForPeripherals(withServices: [BLEService_UUID] , options: [CBCentralManagerScanOptionAllowDuplicatesKey:false])
         Timer.scheduledTimer(timeInterval: 17, target: self, selector: #selector(self.cancelScan), userInfo: nil, repeats: false)
     }
     
@@ -116,8 +116,8 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate, CBP
         self.peripherals.append(peripheral)
         self.RSSIs.append(RSSI)
         peripheral.delegate = self
-        peripheral.discoverServices(nil)
-        //peripheral.discoverServices([BLEService_UUID])
+        //peripheral.discoverServices(nil)
+        peripheral.discoverServices([BLEService_UUID])
         self.baseTableView.reloadData()
         if blePeripheral == nil {
             print("Found new pheripheral devices with services")
@@ -155,8 +155,8 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate, CBP
         //Discovery callback
         peripheral.delegate = self
         //Only look for services that matches transmit uuid
-        peripheral.discoverServices(nil)
-        //peripheral.discoverServices([BLEService_UUID])
+        //peripheral.discoverServices(nil)
+        peripheral.discoverServices([BLEService_UUID])
         
        
         //Once connected, move to new view controller to manager incoming and outgoing data
