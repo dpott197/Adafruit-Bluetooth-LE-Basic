@@ -169,13 +169,10 @@ class UartModuleViewController: UIViewController, CBPeripheralManagerDelegate, U
      @IBAction func switchAction(_ sender: Any) {
         if switchUI.isOn {
             print("On ")
-            writeCharacteristic(val: 1)
-        }
-        else
-        {
+            writeValue(data: "ON")
+        } else {
             print("Off")
-            writeCharacteristic(val: 0)
-            print(writeCharacteristic)
+            writeValue(data: "OFF")
         }
     }
 
